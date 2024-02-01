@@ -1,0 +1,31 @@
+/*
+    ordenar botones
+    */
+.items.fr-3{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+.figure-profile > img{
+    border: 1px solid rgb(135,17,108)
+}
+
+.figure-profile >.icon-navbar{
+    position: absolute;
+    top: 5px;
+    left: 15px;
+}
+
+.label-figure-profile{
+    margin-top: -19px;
+    text-align: center;
+}
+
+.label-figure-avatar > .label-avatar {
+    background-color: rgb(135,17,108);
+    
+}
+.navbar-brand{
+    padding-top: inherit !important;
+}
