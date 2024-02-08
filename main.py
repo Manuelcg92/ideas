@@ -1,6 +1,7 @@
 from flask import render_template as render, flash, send_from_directory
 from app import create_app
 from app.migrate import init_db
+from app.services import list_public_ideas
 
 # cargar y registrar el blueprint
 
@@ -19,7 +20,10 @@ def internal_server_error(error):
 
 @app.route('/')
 def index():
-    return render('index.html')
+    context = {
+        'public': list_public_ideas()
+    }
+    return render('index.html', **context)
 
 @app.template_filter()
 def visibility_public_or_private(visibility):

@@ -115,3 +115,11 @@ def update_profile_picture(username, picture_name_new):
     user.avatar = picture_name_new
     
     db.session.commit()
+    
+def list_public_ideas():
+    """Método para obtener listado de ideas publicas"""
+    data = Idea.query.filter_by(is_public=True).order_by(Idea.category_id)
+    schema = IdeaShema()
+    public_ideas = [schema.dump(i) for i in data]
+    
+    return public_ideas
