@@ -12,11 +12,11 @@ def register_user(user_data):
         name=user_data['name'],
         lastname=user_data['lastname'],
         email=user_data['email'],
-        # password=user_data['password'],
+        password=user_data['password'],
         username=user_data['username'],
         phone=user_data['phone']
         )
-    # user.set_password(password=user_data['password'])
+    user.set_password(password=user_data['password'])
     
     db.session.add(user)
     db.session.commit()

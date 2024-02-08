@@ -17,6 +17,6 @@ def init_db():
         is_admin = True,
         phone = "666666666"
     )
-    # admin.set_password("123Admin")
+    admin.set_password("123Admin")
     db.session.add(admin)
     db.session.commit()

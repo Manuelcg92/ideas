@@ -10,7 +10,7 @@ class User(db.Model):
     name = db.Column(db.String(80), nullable=False)
     lastname = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    # password = db.Column(db.String(250), nullable=False)
+    password = db.Column(db.String(250), nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
     username = db.Column(db.String(80), unique=True, nullable=False)
     phone = db.Column(db.String(100), nullable=False)
@@ -20,11 +20,11 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
     
-    # def set_password(self, password):
-    #     self.password = generate_password_hash(password)
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
         
-    # def check_password(self, password):
-    #     return check_password_hash(self.password,password)
+    def check_password(self, password):
+        return check_password_hash(self.password,password)
     
 class Category(db.Model):
     __tablename__ = 'categories'
